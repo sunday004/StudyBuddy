@@ -8,7 +8,7 @@ export default function signUpPage(){
             <AppBar position="static" >
                 <Toolbar>
                     <Typography variant="h6" sx={{flexGrow:1}}>
-                        Flashcard SaaS
+                        StudyFlex
                     </Typography>
 
                     <Button color="inherit" >
