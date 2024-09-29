@@ -5,18 +5,26 @@ import { Firestore } from 'firebase/firestore'
 import {getDoc, setDoc, doc, collection, filter, writeBatch,} from 'firebase/firestore';
 import {db} from '/firebase'
 
-import { useUser } from '@clerk/nextjs';
+import {ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  useUser,
+  UserButton } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import {
-    Container,
-    TextField,
-    Button,
-    Typography,
-    Box,
-    Grid,
-    Card,
-    CardContent,
-    CardActionArea,
+  Container,
+  TextField,
+  Button,
+  Typography,
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  CardActionArea,
+  CircularProgress,
+  AppBar,
+  Toolbar
   } from '@mui/material'
 
 export default function Flashcard() {
@@ -44,6 +52,28 @@ export default function Flashcard() {
 
       return (
         <Container maxWidth="md">
+                            <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            StudyFlex
+          </Typography>
+          
+          <Button color="inherit" href="../">
+              Home
+          </Button>
+          <SignedOut>
+            <Button color="inherit" href="/sign-in">
+              Login
+            </Button>
+            <Button color="inherit" href="/sign-up">
+              Sign Up
+            </Button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </Toolbar>
+      </AppBar>
           <Grid container spacing={3} sx={{ mt: 4 }}>
             {flashcards.map((flashcard, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>

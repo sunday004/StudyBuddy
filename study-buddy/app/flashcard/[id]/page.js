@@ -4,8 +4,15 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {getDoc, setDoc, query, where,doc, collection, writeBatch,} from 'firebase/firestore';
 import { db } from '/firebase';
-//import { Container, Typography, CircularProgress } from '@mui/material';
-import { useUser } from '@clerk/nextjs';
+//import { Container, Typography, CircularProgress} from '@mui/material';
+import {
+    ClerkProvider,
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    useUser,
+    UserButton
+  } from "@clerk/nextjs";
 
 import {
     Container,
@@ -18,15 +25,17 @@ import {
     CardContent,
     CardActionArea,
     CircularProgress,
+    AppBar,
+    Toolbar
   } from '@mui/material'
 
 
-export default function FlashcardDetails() {
+export default function FlashcardDetails( {params}) {
     const { isLoaded, isSignedIn, user } = useUser()
     const [flipped, setFlipped] = useState([])
     const router = useRouter();
     //const { id } = router.query;  // Get the dynamic id from the route
-    const id ="Theater"
+    const id = params.id
     const [flashcardset, setFlashcardset] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -86,9 +95,33 @@ export default function FlashcardDetails() {
             </Container>
         );
     }
-
+    
     return (
         <Container>
+            <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            StudyFlex
+          </Typography>
+          <Button color="inherit" href="/flashcards">
+              View Cards
+          </Button>
+          <Button color="inherit" href="../">
+              Home
+          </Button>
+          <SignedOut>
+            <Button color="inherit" href="/sign-in">
+              Login
+            </Button>
+            <Button color="inherit" href="/sign-up">
+              Sign Up
+            </Button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </Toolbar>
+      </AppBar>
             <Grid container spacing={2}>
                 {flashcardset.map((flashcard, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
