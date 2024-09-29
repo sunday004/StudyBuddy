@@ -42,9 +42,12 @@ export default function Home() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Flashcard SaaS
+            StudyFlex
           </Typography>
-
+          
+          <Button color="inherit" href="/flashcards">
+              View Cards
+          </Button>
           <SignedOut>
             <Button color="inherit" href="/sign-in">
               Login
@@ -61,7 +64,7 @@ export default function Home() {
 
       <Box sx={{ textAlign: "center", my: 4 }}>
         <Typography variant="h2" component="h1" gutterBottom>
-          Welcome to Flashcard SaaS
+          Welcome to StudyFlex
         </Typography>
         <Typography variant="h5" component="h2" gutterBottom>
           The easiest way to create flashcards from your text.
