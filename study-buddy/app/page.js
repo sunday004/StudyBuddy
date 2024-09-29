@@ -87,13 +87,10 @@ export default function Home() {
         >
           Get Started
         </Button>
-        <Button variant="outlined" color="primary" sx={{ mt: 2 }}>
+        <Button variant="outlined" color="inherit" sx={{ mt: 2 }}>
           Learn More
         </Button>
       </Box>
-      <Typography position='relative' top='400px'align='center' variant="h4" component="h2" gutterBottom>
-      Features
-      </Typography>
       <Box sx={{ my: 6 }}>
   {/* Larger Flex Container */}
   <Box
@@ -170,7 +167,7 @@ export default function Home() {
           src="/Personalized.jpg" // Replace with your image path
           alt="Smart Flashcards"
           width={300}
-          height={100}
+          height={200}
           style={{ width: '100%', height: '100%' }}
         />
       </Box>

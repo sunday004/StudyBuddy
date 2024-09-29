@@ -5,7 +5,12 @@ import { Firestore } from 'firebase/firestore'
 import {getDoc, doc, collection, writeBatch,} from 'firebase/firestore';
 import {db} from '/firebase'
 
-import { useUser } from '@clerk/nextjs';
+import { useUser, 
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
 import {
@@ -18,14 +23,15 @@ import {
   Card,
   CardContent,
   CardActionArea,
-  
   Dialog,
   DialogContent,
   DialogTitle,
   DialogContentText,
   DialogActions,
+  AppBar,
+  Toolbar,
+  Shadows,
 } from '@mui/material'
-
 
 export default function Generate() {
   const [text, setText] = useState('')
@@ -110,6 +116,30 @@ export default function Generate() {
 
   return (
     <Container maxWidth="md">
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            StudyFlex
+          </Typography>
+          <Button color="inherit" href="../">
+              Home
+          </Button>
+          <Button color="inherit" href="/flashcards">
+              View Cards
+          </Button>
+          <SignedOut>
+            <Button color="inherit" href="/sign-in">
+              Login
+            </Button>
+            <Button color="inherit" href="/sign-up">
+              Sign Up
+            </Button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </Toolbar>
+      </AppBar>
       <Box sx={{ my: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Generate Flashcards
