@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 
 import {
   ClerkProvider,
@@ -19,6 +20,7 @@ import {
   Shadows,
 } from "@mui/material";
 
+
 export default function Home() {
   const handleSubmit = async () => {
     const checkoutSession = await fetch("/api/checkout_sessions", {
@@ -38,7 +40,15 @@ export default function Home() {
   };
 
   return (
-    <Box>
+    <Box
+    sx={{
+      backgroundImage: 'url("/background.jpg")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      height: '100vh',
+      width: 'auto',
+    }}
+    >
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
@@ -81,92 +91,137 @@ export default function Home() {
           Learn More
         </Button>
       </Box>
-
+      <Typography position='relative' top='400px'align='center' variant="h4" component="h2" gutterBottom>
+      Features
+      </Typography>
       <Box sx={{ my: 6 }}>
-        <Typography variant="h4" component="h2" gutterBottom>
-          Features
-        </Typography>
-        <Grid container spacing={4} position="relative" top="50px">
-          {/* Feature items */}
-          <Grid item>
-            <Card padding={2}>
-              <CardContent>
-                <Typography variant="h5">Easy Input</Typography>
-                <Typography>
-                  Upload Class content via text to generate likely questions for
-                  a quiz
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card>
-              <CardContent>
-                <Typography variant="h5">Smart Flashcards</Typography>
-                <Typography>
-                  Upload Class content via text to generate likely questions for
-                  a quiz
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card>
-              <CardContent>
-                <Typography variant="h5">Accessible Anywhere</Typography>
-                <Typography>
-                  Upload Class content via text to generate likely questions for
-                  a quiz
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+  {/* Larger Flex Container */}
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between', // Equal space between items
+      alignItems: 'flex-start',
+      mt: 4,
+      flexWrap: 'wrap', // Allows wrapping on smaller screens
+      paddingTop: 45,
+      paddingLeft:5,
+      paddingRight:5,
+    }}
+  >
+    {/* Feature Item 1 */}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: {
+          xs: '100%', // Full width on extra-small screens
+          sm: '48%',  // Two items per row on small screens
+          md: '30%',  // Three items per row on medium and up
+        },
+        padding: 2,
+        boxShadow: 3,
+        borderRadius: 2,
+        mb: 4, // Adds bottom margin to separate rows
+      }}
+    >
+      {/* Image at the Top */}
+      <Box sx={{ mb: 2 }}>
+        <Image
+          src="/accessible.jpg" // Replace with your image path
+          alt="Easy Input"
+          width={300}
+          height={100}
+          style={{ width: '100%', height: '100%' }} // Makes image responsive
+        />
       </Box>
+      {/* Text at the Bottom */}
+      <Typography variant="h5" gutterBottom>
+        Accessible Anywhere
+      </Typography>
+      <Typography>
+      Access your flashcards on any device, anytime, anywhere.
+      </Typography>
+    </Box>
 
-      <Box
-        sx={{ my: 6, textAlign: "center" }}
-        position="relative"
-        bottom="10px"
-      >
-        <Typography variant="h4" component="h2" gutterBottom>
-          Pricing
-        </Typography>
-        <Grid
-          container
-          spacing={4}
-          justifyContent="center"
-          position="relative"
-          top="50px"
-        >
-          {/* Pricing plans */}
-          <Grid item>
-            <Card margin={2}>
-              <CardContent>
-                <Box height="300px" width="400px">
-                  <Typography variant="h4">Free Version</Typography>
-
-                  <Typography variant="h5">$0</Typography>
-                  <Button variant="outlined" position="absolute" bottom="10px">
-                    Start Now
-                  </Button>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card>
-              <CardContent>
-                <Box height="300px" minWidth="400px">
-                  <Typography variant="h4">Premium Offers</Typography>
-                  <Typography variant="h5">$10</Typography>
-                  <Button variant="outlined">Pay Now</Button>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+    {/* Feature Item 2 */}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: {
+          xs: '100%',
+          sm: '48%',
+          md: '30%',
+        },
+        padding: 2,
+        boxShadow: 3,
+        borderRadius: 2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        mb: 4,
+      }}
+    >
+      {/* Image at the Top */}
+      <Box sx={{ mb: 2 }}>
+        <Image
+          src="/Personalized.jpg" // Replace with your image path
+          alt="Smart Flashcards"
+          width={300}
+          height={100}
+          style={{ width: '100%', height: '100%' }}
+        />
       </Box>
+      {/* Text at the Bottom */}
+      <Typography variant="h5" gutterBottom>
+        Smart Flashcards
+      </Typography>
+      <Typography>
+        Our AI creates flashcards that adapt to your learning style.
+      </Typography>
+    </Box>
+
+    {/* Feature Item 3 */}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: {
+          xs: '100%',
+          sm: '48%',
+          md: '30%',
+        },
+        padding: 2,
+        boxShadow: 3,
+        borderRadius: 2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        mb: 4,
+      }}
+    >
+      {/* Image at the Top */}
+      <Box sx={{ mb: 2 }}>
+        <Image
+          src="/Multimedia.jpg" // Replace with your image path
+          alt="Accessible Anywhere"
+          width={300}
+          height={100}
+          style={{ width: '100%', height: '100%' }}
+        />
+      </Box>
+      {/* Text at the Bottom */}
+      <Typography variant="h5" gutterBottom>
+      Multimedia Uploads
+      </Typography>
+      <Typography>
+Our AI-powered flashcards are user-friendly and support a variety of inputs, from text to audio.
+ Just upload your content, and get ready to dive into learning
+      </Typography>
+    </Box>
+  </Box>
+</Box>
     </Box>
   );
 }
