@@ -44,7 +44,10 @@ export default function Home() {
           <Typography variant="h6" style={{ flexGrow: 1 }}>
             StudyFlex
           </Typography>
-
+          
+          <Button color="inherit" href="/flashcards">
+              View Cards
+          </Button>
           <SignedOut>
             <Button color="inherit" href="/sign-in">
               Login
