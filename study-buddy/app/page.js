@@ -85,7 +85,7 @@ export default function Home() {
           sx={{ mt: 2, mr: 2 }}
           href="/generate"
         >
-          Get Started
+          Generate Now!
         </Button>
         <Button variant="outlined" color="primary" sx={{ mt: 2 }}>
           Learn More
