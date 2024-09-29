@@ -102,8 +102,9 @@ export default function Generate() {
       handleCloseDialog()
       setSetName('')
     } catch (error) {
+      console.log(error)
       console.error('Error saving flashcards:', error)
-      alert('An error occurred while saving flashcards. Please try again.')
+      alert('An error occurred while saving flashcards. Please try again.' + error)
     }
   }
 
