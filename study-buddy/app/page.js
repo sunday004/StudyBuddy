@@ -45,6 +45,7 @@ export default function Home() {
       backgroundImage: 'url("/background.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
+      filter: 'brightness(0.5)',
       height: '100vh',
       width: 'auto',
     }}
@@ -73,10 +74,10 @@ export default function Home() {
       </AppBar>
 
       <Box sx={{ textAlign: "center", my: 4 }}>
-        <Typography variant="h2" component="h1" gutterBottom>
+        <Typography variant="h2" component="h1" sx={{ color: 'rgba(0, 0, 0, 0.9)' }} gutterBottom >
           Welcome to StudyFlex
         </Typography>
-        <Typography variant="h5" component="h2" gutterBottom>
+        <Typography variant="h5" component="h2"sx={{ color: 'rgba(0, 0, 0, 0.9)' }} gutterBottom>
           The easiest way to create flashcards from your text.
         </Typography>
         <Button
@@ -134,7 +135,7 @@ export default function Home() {
           alt="Easy Input"
           width={300}
           height={100}
-          style={{ width: '100%', height: '100%' }} // Makes image responsive
+          style={{ width: '100%', height: 'auto' }} // Makes image responsive
         />
       </Box>
       {/* Text at the Bottom */}
@@ -142,7 +143,7 @@ export default function Home() {
         Accessible Anywhere
       </Typography>
       <Typography>
-      Access your flashcards on any device, anytime, anywhere.
+      Study Flex flashcard users do not need to worry about being tied to a specific device or location. Our cloud-based system ensures that your flashcards are updated in real-time, and you can pick up right where you left off, whether you’re using a phone during your commute or your laptop at home.
       </Typography>
     </Box>
 
@@ -171,7 +172,7 @@ export default function Home() {
           alt="Smart Flashcards"
           width={300}
           height={100}
-          style={{ width: '100%', height: '100%' }}
+          style={{ width: '100%', height: 'auto' }}
         />
       </Box>
       {/* Text at the Bottom */}
@@ -179,7 +180,7 @@ export default function Home() {
         Smart Flashcards
       </Typography>
       <Typography>
-        Our AI creates flashcards that adapt to your learning style.
+      Our AI creates flashcards tailored to cover every specific topic in your coursework, ensuring comprehensive preparation. By analyzing your course materials, lecture notes, and syllabus, our AI identifies key concepts and generates personalized flashcards to target the most critical areas.
       </Typography>
     </Box>
 
@@ -208,7 +209,7 @@ export default function Home() {
           alt="Accessible Anywhere"
           width={300}
           height={100}
-          style={{ width: '100%', height: '100%' }}
+          style={{ width: '100%', height: 'auto' }}
         />
       </Box>
       {/* Text at the Bottom */}
@@ -216,8 +217,7 @@ export default function Home() {
       Multimedia Uploads
       </Typography>
       <Typography>
-Our AI-powered flashcards are user-friendly and support a variety of inputs, from text to audio.
- Just upload your content, and get ready to dive into learning
+   Whether you prefer typing out notes, uploading documents, or even using voice recordings, our system effortlessly processes your content and converts it into effective flashcards. This flexibility allows you to focus on learning in the way that suits you best, without the hassle of manually creating study materials
       </Typography>
     </Box>
   </Box>
