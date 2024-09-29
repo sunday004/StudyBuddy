@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Firestore } from 'firebase/firestore'
-import {getDoc, doc, collection, writeBatch,} from 'firebase/firestore';
+import {getDoc, setDoc, doc, collection, filter, writeBatch,} from 'firebase/firestore';
 import {db} from '/firebase'
 
 import { useUser } from '@clerk/nextjs';
@@ -24,7 +24,7 @@ export default function Flashcard() {
     const [flashcards, setFlashcards] = useState([])
     const router = useRouter()
     const handleCardClick = (id) => {
-        router.push(`/flashcard?id=${id}`)
+        router.push(`/flashcard/${id}`)
       }
     useEffect(() => {
         async function getFlashcards() {
